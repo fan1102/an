@@ -1,0 +1,321 @@
+@use 'mixin/mixin';
+@use 'root';
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@600&family=Noto+Sans+TC:wght@500&family=Satisfy&display=swap');
+
+body {
+    color: root.$black;
+    position: relative;
+}
+
+main {
+    margin-top: 45px;
+}
+
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+img:not(.img_icon, .img) {
+    max-width: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+// 單行...
+.ellipsis1 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+// 兩行...
+.ellipsis2 {
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    // 行數
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+
+.header {
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: root.$white;
+    height: 45px;
+
+    .header_left {
+        .logo {
+            font-family: 'Catamaran', sans-serif;
+            color: root.$black;
+
+            &:hover {
+                color: root.$black;
+            }
+        }
+
+        .nav {
+            a {
+                color: root.$black;
+            }
+        }
+    }
+
+    .header_right {
+        .icon {
+            i {
+                color: root.$black;
+                font-size: root.$font_20;
+            }
+        }
+
+        // 電腦版搜尋
+        .search_input {
+            display: none;
+
+            &.active {
+                display: block;
+            }
+
+            input {
+                border: 0;
+                border-bottom: 1px solid root.$border_color;
+                padding: 1px 40px 1px 2px;
+
+                &:focus {
+                    outline: 0;
+                }
+            }
+
+            a {
+                right: 10px;
+            }
+        }
+    }
+
+    // 漢堡選單
+    .menu {
+        top: 0;
+        right: 20px;
+        font-size: root.$font_28;
+        color: root.$black;
+        width: 24px;
+        height: 28px;
+    }
+
+    .bell_total {
+        width: 18px;
+        height: 18px;
+        background: root.$red;
+        border-radius: 30px;
+        top: -4px;
+        left: 0;
+        right: -30px;
+        margin: auto;
+        font-size: root.$font_10;
+        color: root.$white;
+    }
+}
+
+// 漢堡選單列表
+.menu_list {
+    top: 0;
+    left: 0;
+    width: 0;
+    z-index: 4;
+    background: root.$white;
+
+    .nav {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+
+        a {
+            color: root.$black;
+            border-bottom: 1px solid root.$border_color;
+
+            i {
+                font-size: root.$font_24;
+            }
+        }
+    }
+}
+
+.footer {
+    color: root.$white;
+    background: root.$footer_bg;
+    margin-bottom: 57px;
+
+    h3 {
+        font-size: root.$font_16;
+    }
+
+    ul {
+        li {
+            font-size: root.$font_12;
+
+            a {
+                color: root.$white;
+            }
+        }
+    }
+
+    .copyright {
+        font-size: root.$font_12;
+    }
+
+    .logo {
+        font-family: 'Catamaran', sans-serif;
+    }
+}
+
+.card {
+    h2 {
+        color: root.$text_color_1;
+        font-size: root.$font_16;
+    }
+
+    .card-text {
+        span {
+            color: root.$text_color_1;
+        }
+    }
+
+    del {
+        color: root.$text_color_1;
+    }
+
+    .sale_price {
+        color: root.$red;
+    }
+}
+
+.near_btn {
+    background: root.$black;
+    left: 0;
+    bottom: 0;
+    z-index: 4;
+
+    // 手機版搜尋
+    .search_input {
+        background: root.$white;
+        left: 0;
+        top: -43px;
+        display: none;
+        z-index: 4;
+
+        &.active {
+            display: block;
+        }
+
+        input {
+            border: 0;
+            border-bottom: 1px solid root.$border_color;
+            padding: 1px 40px 1px 2px;
+
+            &:focus {
+                outline: 0;
+            }
+        }
+
+        a {
+            color: root.$black;
+            right: 15px;
+        }
+    }
+
+    a {
+        color: root.$white;
+
+        i {
+            font-size: root.$font_18;
+        }
+
+        span {
+            font-size: root.$font_12;
+        }
+
+        .bell_total {
+            width: 18px;
+            height: 18px;
+            background: root.$red;
+            border-radius: 30px;
+            top: 0;
+            left: 0;
+            right: -30px;
+            margin: auto;
+            font-size: root.$font_10;
+        }
+    }
+}
+
+// 右側工具
+.tools {
+    right: 5%;
+    bottom: 115px;
+
+    .gotop {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: root.$white;
+        color: root.$black;
+        font-size: root.$font_28;
+        opacity: 0;
+
+        i {
+            bottom: 11px;
+        }
+    }
+}
+
+// 麵包屑
+.breadcrumb {
+    li {
+        a {
+            color: root.$black;
+        }
+        h1 {
+            font-size: root.$font_16;
+        }
+    }
+}
+
+// 數量
+.num {
+    .input-group {
+        width: 150px;
+        button {
+            background-color: root.$border_color;
+            border-color: root.$border_color;
+        }
+    }
+}
+
+// 購物車按鈕
+.save_btn {
+    color: root.$white;
+    background-color: root.$btn_1;
+    border: 1px solid root.$btn_1;
+    &:hover {
+        color: root.$white;
+    }
+}
+
+
+@include mixin.large_desktops {
+    .footer {
+        margin-bottom: 0;
+    }
+}
